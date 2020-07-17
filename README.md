@@ -12,7 +12,7 @@ Add this to your package's pubspec.yaml file:
 dependencies:
   flutter_qiyu:
     git:
-      url: https://github.com/blankapp/flutter_qiyu.git
+      url: https://github.com/qcdys/flutter_qiyu_wangyi.git
       ref: master
 ```
 
@@ -80,7 +80,7 @@ class _MyAppState extends State<MyApp> {
                       'note': '￥1000',
                       'show': true
                     },
-                    'sessionTitle': '网易七鱼123',
+                    'sessionTitle': '网易七鱼',
                     'groupId': 0,
                     'staffId': 0,
                     'robotId': 0,
@@ -118,7 +118,6 @@ class _MyAppState extends State<MyApp> {
 ```
 MIT License
 
-Copyright (c) 2020 LiJianying <lijy91@foxmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
