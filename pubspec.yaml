@@ -1,8 +1,8 @@
 name: flutter_qiyu
 description: Qiyu plugin for Flutter.
 version: 0.0.1
-author: 风的季节
-homepage: https://github.com/qcdys/com.flutter.plugins.flutter_qiyu
+author: qcdys
+homepage: https://github.com/qcdys/flutter_qiyu_wangyi
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -28,7 +28,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.flutter.plugins.flutter_qiyu
+        package: com.qcdys.flutter_qiyu
         pluginClass: FlutterQiyuPlugin
       ios:
         pluginClass: FlutterQiyuPlugin

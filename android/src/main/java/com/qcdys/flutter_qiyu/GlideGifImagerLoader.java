@@ -1,4 +1,4 @@
-package com.flutter.plugins.flutter_qiyu;
+package com.qcdys.flutter_qiyu;
 
 import android.content.Context;
 import android.widget.ImageView;

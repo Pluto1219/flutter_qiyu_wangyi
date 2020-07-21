@@ -1,4 +1,4 @@
-package com.flutter.plugins.flutter_qiyu;
+package com.qcdys.flutter_qiyu;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -6,6 +6,12 @@ import android.graphics.Color;
 import android.text.TextUtils;
 
 public class QiYuUtils {
+    public static boolean getBool(String arg) {
+        if (TextUtils.isEmpty(arg)) return false;
+
+        return Boolean.parseBoolean(arg);
+    }
+
     public static int parseColor(String colorString) {
         int color = 0;
         try {

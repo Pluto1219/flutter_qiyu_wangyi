@@ -1,4 +1,4 @@
-package com.flutter.plugins.flutter_qiyu;
+package com.qcdys.flutter_qiyu;
 
 import android.content.Context;
 import android.content.Intent;
@@ -203,72 +203,92 @@ public class FlutterQiyuPlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     private void setCustomUIConfig(MethodCall call) {
-        // 会话窗口上方提示条中的文本字体颜色
-        String sessionTipTextColor = call.argument("sessionTipTextColor");
-        // 会话窗口上方提示条中的文本字体大小
-        int sessionTipTextFontSize = call.argument("sessionTipTextFontSize");
-        // 访客文本消息字体颜色
-        String customMessageTextColor = call.argument("customMessageTextColor");
-        // 客服文本消息字体颜色
-        String serviceMessageTextColor = call.argument("serviceMessageTextColor");
-        // 消息文本消息字体大小
-        int messageTextFontSize = call.argument("messageTextFontSize");
-        // 提示文本消息字体颜色
-        String tipMessageTextColor = call.argument("tipMessageTextColor");
-        // 提示文本消息字体大小
-        int tipMessageTextFontSize = call.argument("tipMessageTextFontSize");
-        // 输入框文本消息字体颜色
-        String inputTextColor = call.argument("inputTextColor");
-        // 输入框文本消息字体大小
-        int inputTextFontSize = call.argument("inputTextFontSize");
-        // 客服聊天窗口背景图片
-        String sessionBackgroundImage = call.argument("sessionBackgroundImage");
-        // 会话窗口上方提示条中的背景颜色
-        String sessionTipBackgroundColor = call.argument("sessionTipBackgroundColor");
-        // 访客头像
+        // 标题居中
+        boolean titleCenter = call.hasArgument("titleCenter");
+        // 标题栏背景颜色
+        int titleBackgroundColor = QiYuUtils.parseColor((String) call.argument("titleBackgroundColor"));
+        // 标题栏风格，影响标题和标题栏上按钮的颜色
+        int titleBarStyle = call.argument("titleBarStyle");
+
         String customerHeadImage = call.argument("customerHeadImage");
-        // 客服头像
-        String serviceHeadImage = call.argument("serviceHeadImage");
-        // 消息竖直方向间距
-        float sessionMessageSpacing = (float) call.argument("sessionMessageSpacing");
-        // 是否显示头像
-        boolean showHeadImage = true;
-        if (call.hasArgument("showHeadImage"))
-            showHeadImage = call.argument("showHeadImage");
-        // 显示发送语音入口，设置为false，可以修改为隐藏
-        boolean showAudioEntry = true;
-        if (call.hasArgument("showAudioEntry"))
-            showAudioEntry = call.argument("showAudioEntry");
-        // 显示发送表情入口，设置为false，可以修改为隐藏
-        boolean showEmoticonEntry = true;
-        if (call.hasArgument("showEmoticonEntry")) call.argument("showEmoticonEntry");
-        // 进入聊天界面，是文本输入模式的话，会弹出键盘，设置为false，可以修改为不弹出
-        boolean autoShowKeyboard = true;
-        if (call.hasArgument("autoShowKeyboard ")) call.argument("autoShowKeyboard ");
 
         UICustomization uiCustomization = ysfOptions.uiCustomization;
         if (uiCustomization == null) {
             uiCustomization = ysfOptions.uiCustomization = new UICustomization();
         }
-        uiCustomization.topTipBarTextColor = QiYuUtils.parseColor(sessionTipTextColor);
-        uiCustomization.topTipBarTextSize = sessionTipTextFontSize;
-        uiCustomization.textMsgColorRight = QiYuUtils.parseColor(customMessageTextColor);
-        uiCustomization.textMsgColorLeft = QiYuUtils.parseColor(serviceMessageTextColor);
-        uiCustomization.textMsgSize = messageTextFontSize;
-        uiCustomization.tipsTextColor = QiYuUtils.parseColor(tipMessageTextColor);
-        uiCustomization.tipsTextSize = tipMessageTextFontSize;
-        uiCustomization.inputTextColor = QiYuUtils.parseColor(inputTextColor);
-        uiCustomization.inputTextSize = inputTextFontSize;
-        uiCustomization.msgBackgroundUri = QiYuUtils.getImageUri(this.context, sessionBackgroundImage);
-        uiCustomization.topTipBarBackgroundColor = QiYuUtils.parseColor(sessionTipBackgroundColor);
+
+        uiCustomization.titleCenter = titleCenter;
+        uiCustomization.titleBackgroundColor = titleBackgroundColor;
+        uiCustomization.titleBarStyle = titleBarStyle;
+
         uiCustomization.rightAvatar = QiYuUtils.getImageUri(this.context, customerHeadImage);
-        uiCustomization.leftAvatar = QiYuUtils.getImageUri(this.context, serviceHeadImage);
-        uiCustomization.msgListViewDividerHeight = (int) sessionMessageSpacing;
-        uiCustomization.hideLeftAvatar = !showHeadImage;
-        uiCustomization.hideRightAvatar = !showHeadImage;
-        uiCustomization.hideAudio = !showAudioEntry;
-        uiCustomization.hideEmoji = !showEmoticonEntry;
-        uiCustomization.hideKeyboardOnEnterConsult = !autoShowKeyboard;
+
+//        // 会话窗口上方提示条中的文本字体颜色
+//        String sessionTipTextColor = call.argument("sessionTipTextColor");
+//        // 会话窗口上方提示条中的文本字体大小
+//        int sessionTipTextFontSize = call.argument("sessionTipTextFontSize");
+//        // 访客文本消息字体颜色
+//        String customMessageTextColor = call.argument("customMessageTextColor");
+//        // 客服文本消息字体颜色
+//        String serviceMessageTextColor = call.argument("serviceMessageTextColor");
+//        // 消息文本消息字体大小
+//        int messageTextFontSize = call.argument("messageTextFontSize");
+//        // 提示文本消息字体颜色
+//        String tipMessageTextColor = call.argument("tipMessageTextColor");
+//        // 提示文本消息字体大小
+//        int tipMessageTextFontSize = call.argument("tipMessageTextFontSize");
+//        // 输入框文本消息字体颜色
+//        String inputTextColor = call.argument("inputTextColor");
+//        // 输入框文本消息字体大小
+//        int inputTextFontSize = call.argument("inputTextFontSize");
+//        // 客服聊天窗口背景图片
+//        String sessionBackgroundImage = call.argument("sessionBackgroundImage");
+//        // 会话窗口上方提示条中的背景颜色
+//        String sessionTipBackgroundColor = call.argument("sessionTipBackgroundColor");
+//        // 访客头像
+//        String customerHeadImage = call.argument("customerHeadImage");
+//        // 客服头像
+//        String serviceHeadImage = call.argument("serviceHeadImage");
+//        // 消息竖直方向间距
+//        float sessionMessageSpacing = (float) call.argument("sessionMessageSpacing");
+//        // 是否显示头像
+//        boolean showHeadImage = true;
+//        if (call.hasArgument("showHeadImage"))
+//            showHeadImage = call.argument("showHeadImage");
+//        // 显示发送语音入口，设置为false，可以修改为隐藏
+//        boolean showAudioEntry = true;
+//        if (call.hasArgument("showAudioEntry"))
+//            showAudioEntry = call.argument("showAudioEntry");
+//        // 显示发送表情入口，设置为false，可以修改为隐藏
+//        boolean showEmoticonEntry = true;
+//        if (call.hasArgument("showEmoticonEntry")) call.argument("showEmoticonEntry");
+//        // 进入聊天界面，是文本输入模式的话，会弹出键盘，设置为false，可以修改为不弹出
+//        boolean autoShowKeyboard = true;
+//        if (call.hasArgument("autoShowKeyboard ")) call.argument("autoShowKeyboard ");
+//
+//        UICustomization uiCustomization = ysfOptions.uiCustomization;
+//        if (uiCustomization == null) {
+//            uiCustomization = ysfOptions.uiCustomization = new UICustomization();
+//        }
+//        uiCustomization.topTipBarTextColor = QiYuUtils.parseColor(sessionTipTextColor);
+//        uiCustomization.topTipBarTextSize = sessionTipTextFontSize;
+//        uiCustomization.textMsgColorRight = QiYuUtils.parseColor(customMessageTextColor);
+//        uiCustomization.textMsgColorLeft = QiYuUtils.parseColor(serviceMessageTextColor);
+//        uiCustomization.textMsgSize = messageTextFontSize;
+//        uiCustomization.tipsTextColor = QiYuUtils.parseColor(tipMessageTextColor);
+//        uiCustomization.tipsTextSize = tipMessageTextFontSize;
+//        uiCustomization.inputTextColor = QiYuUtils.parseColor(inputTextColor);
+//        uiCustomization.inputTextSize = inputTextFontSize;
+//        uiCustomization.msgBackgroundUri = QiYuUtils.getImageUri(this.context, sessionBackgroundImage);
+//        uiCustomization.topTipBarBackgroundColor = QiYuUtils.parseColor(sessionTipBackgroundColor);
+//        uiCustomization.rightAvatar = QiYuUtils.getImageUri(this.context, customerHeadImage);
+//        uiCustomization.leftAvatar = QiYuUtils.getImageUri(this.context, serviceHeadImage);
+//        uiCustomization.msgListViewDividerHeight = (int) sessionMessageSpacing;
+//        uiCustomization.hideLeftAvatar = !showHeadImage;
+//        uiCustomization.hideRightAvatar = !showHeadImage;
+//        uiCustomization.hideAudio = !showAudioEntry;
+//        uiCustomization.hideEmoji = !showEmoticonEntry;
+//        uiCustomization.hideKeyboardOnEnterConsult = !autoShowKeyboard;
     }
 
     private void getUnreadCount(MethodCall call, Result result) {

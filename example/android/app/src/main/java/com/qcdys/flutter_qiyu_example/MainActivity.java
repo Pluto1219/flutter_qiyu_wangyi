@@ -1,4 +1,4 @@
-package com.flutter.plugins.flutter_qiyu;
+package com.qcdys.flutter_qiyu_example;
 
 import io.flutter.embedding.android.FlutterActivity;
 

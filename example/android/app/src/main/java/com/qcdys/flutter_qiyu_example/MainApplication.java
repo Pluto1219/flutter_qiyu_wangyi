@@ -1,4 +1,7 @@
-package com.flutter.plugins.flutter_qiyu;
+package com.qcdys.flutter_qiyu_example;
+
+
+import com.qcdys.flutter_qiyu.FlutterQiyuPlugin;
 
 import io.flutter.app.FlutterApplication;
 

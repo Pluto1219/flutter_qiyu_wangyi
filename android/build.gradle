@@ -1,4 +1,4 @@
-group 'com.flutter.plugins.flutter_qiyu'
+group 'com.qcdys.flutter_qiyu'
 version '1.0'
 
 buildscript {
