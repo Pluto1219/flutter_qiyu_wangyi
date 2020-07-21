@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                     },
                     'sessionTitle': '网易七鱼',
                     'groupId': 0,
-                    'staffId': 4089135,
+                    'staffId': 0,
                     'robotId': 0,
                     'robotFirst': false,
                     'faqTemplateId': 0,
