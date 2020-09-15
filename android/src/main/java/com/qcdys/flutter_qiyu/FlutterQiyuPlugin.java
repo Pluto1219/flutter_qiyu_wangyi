@@ -75,7 +75,10 @@ public class FlutterQiyuPlugin implements FlutterPlugin, MethodCallHandler {
             Map<String, Object> map = new HashMap<>();
             map.put("unreadCount", unreadCount);
 
-            channel.invokeMethod("onUnreadCountChange", map);
+            if (channel != null) {
+                channel.invokeMethod("onUnreadCountChange", map);
+            }
+
         }
     };
 
