@@ -2,7 +2,7 @@ name: flutter_qiyu
 description: Qiyu plugin for Flutter.
 version: 0.0.1
 author: qcdys
-homepage: https://github.com/qcdys/flutter_qiyu_wangyi
+homepage: https://github.com/Pluto1219/flutter_qiyu_wangyi
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
