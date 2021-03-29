@@ -7,6 +7,7 @@
 @end
 
 @implementation FlutterQiyuPlugin
+
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
     FlutterMethodChannel* channel = [FlutterMethodChannel
                                      methodChannelWithName:@"flutter_qiyu"
